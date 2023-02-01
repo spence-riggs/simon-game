@@ -6,13 +6,14 @@ var userClickPattern = [];
 var hasGameStarted = false;
 var level = 0;
 
-$("body").keydown(function(){
+$("h1").click(function(){
     if (!hasGameStarted) {
         nextSequence();
         hasGameStarted = true;
         $("h1").text("Level " + level);
     }
 });
+
 
 function nextSequence(){
     userClickPattern = [];
@@ -57,7 +58,7 @@ function checkAnswer(currentLevel){
     } else {
         playSound("wrong");
         $("body").addClass("game-over");
-        $("h1").text("Game Over. Press Any Key to Restart.");
+        $("h1").text("Game Over. Click Here to Restart.");
         setTimeout(function(){
             $("body").removeClass("game-over");
         }, 200);
